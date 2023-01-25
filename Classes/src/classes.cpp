@@ -7,7 +7,7 @@ public:
 	// Конструктор по умолчанию
 	Id()
 	{
-		value_ = defaultValue;
+		value_ = defaultValue; 
 	}
 
 	// explicit отключает автоматическое преобразование типа для этого конструктора

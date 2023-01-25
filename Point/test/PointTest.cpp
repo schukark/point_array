@@ -2,7 +2,7 @@
 
 #include "Point.h"
 
-using namespace task2;
+using namespace taskPoint;
 
 TEST(Point, constructor) {
     Point p1;
@@ -27,18 +27,7 @@ TEST(Point, set) {
     EXPECT_EQ(y, p1.getY());
 }
 
-TEST(Point, shift1) {
-    const auto x = 1;
-    const auto y = 2;
-    Point p1(x, y);
-
-    const auto shf = 15;
-    p1.shift(shf);
-    EXPECT_EQ(x + shf, p1.getX());
-    EXPECT_EQ(y + shf, p1.getY());
-}
-
-TEST(Point, shift2) {
+TEST(Point, shift) {
     const auto x = 1;
     const auto y = 2;
     Point p1(x, y);
@@ -50,7 +39,7 @@ TEST(Point, shift2) {
     EXPECT_EQ(y + ySh, p1.getY());
 }
 
-TEST(Point, shift3) {
+TEST(Point, add_equals) {
     const auto x1 = 1;
     const auto y1 = 2;
     Point p1(x1, y1);
@@ -59,11 +48,39 @@ TEST(Point, shift3) {
     const auto y2 = 10;
     Point p2(x2, y2);
 
-    p1.shift(p2);
+    p1 += p2;
 
     EXPECT_EQ(x2, p2.getX());
     EXPECT_EQ(y2, p2.getY());
 
     EXPECT_EQ(x1 + x2, p1.getX());
     EXPECT_EQ(y1 + y2, p1.getY());
+}
+
+TEST(Point, sub_equals) {
+    const auto x1 = 1;
+    const auto y1 = 2;
+    Point p1(x1, y1);
+
+    const auto x2 = 5;
+    const auto y2 = 10;
+    Point p2(x2, y2);
+
+    p1 -= p2;
+
+    EXPECT_EQ(x1 + x2, p1.getX());
+    EXPECT_EQ(y1 + y2, p1.getY());
+}
+
+TEST(Point, equals) {
+    const auto x = 1;
+    const auto y = 2;
+    Point p1(x, y);
+    Point p2(x, y);
+    Point p3(x+1, y);
+    Point p4(x, y+1);
+
+    EXPECT_EQ(true, p1 == p2);
+    EXPECT_EQ(false, p1 == p3);
+    EXPECT_EQ(false, p2 == p4);
 }

@@ -1,3 +1,4 @@
 project(Point)
 
-add_executable (Point "Point.cpp" "Point.h")
+as_library()
+with_test(Point gtest_main)
