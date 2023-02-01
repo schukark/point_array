@@ -12,7 +12,7 @@ namespace taskPoint
 	{
 	public:
 		/// Конструктор инициализирует объект точки двумя координатами.
-		Point() = default;
+		Point();
 		explicit Point(int x, int y = 0);
 
 		Point(const Point& other) = default;
