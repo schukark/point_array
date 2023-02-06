@@ -19,6 +19,8 @@ add_subdirectory ("Classes")
 # Tasks
 add_subdirectory ("Point")
 add_subdirectory ("PointArray")
+add_subdirectory ("Node")
+add_subdirectory ("Tree")
 
 include(FetchContent)
 FetchContent_Declare(
