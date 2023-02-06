@@ -6,7 +6,7 @@ namespace taskPoint {
 
 PointArray::PointArray() : size_(0), arr_(nullptr) {}
 
-PointArray::PointArray(const Point points[], Uint n): size_(n) {
+PointArray::PointArray(const Point points[], const Uint n): size_(n) {
     arr_ = new Point[n];
 
     for (Uint i = 0; i < n; i++) {
@@ -47,7 +47,7 @@ void PointArray::append(const Point& pt) {
     arr_[size_++] = pt;
 }
 
-void PointArray::insert(const Point& pt, Uint pos) {
+void PointArray::insert(const Point& pt, const Uint pos) {
     if (pos > size_) {
         throw std::out_of_range("Index out of range");
         return;
@@ -70,7 +70,7 @@ void PointArray::insert(const Point& pt, Uint pos) {
     arr_[pos] = pt;
 }
 
-void PointArray::remove(Uint pos) {
+void PointArray::remove(const Uint pos) {
     if (pos >= size_) {
         return;
     }
@@ -104,7 +104,7 @@ PointArray::Uint PointArray::getSize() const {
     return size_;
 }
 
-void PointArray::resize(Uint n) {
+void PointArray::resize(const Uint n) {
     Point* data = new Point[n];
 
     for (Uint i = 0; i < n; i++) {
@@ -117,14 +117,14 @@ void PointArray::resize(Uint n) {
     size_ = n;
 }
 
-Point& PointArray::operator[](PointArray::Uint index) {
+Point& PointArray::operator[](const PointArray::Uint index) {
     if (index < size_)
         return arr_[index];
     else
         throw std::out_of_range("Index out of range");
 }
 
-const Point& PointArray::operator[](PointArray::Uint index) const {
+const Point& PointArray::operator[](const PointArray::Uint index) const {
     if (index < size_)
         return arr_[index];
     else
